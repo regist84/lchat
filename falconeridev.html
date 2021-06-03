@@ -1,0 +1,73 @@
+<html>
+
+<head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"></meta>
+   </head>
+<body>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+        embedded_svc.menu.settings.language = "it";
+      embedded_svc.menu.chat.settings.paramName = "";
+      embedded_svc.menu.chat.settings.paramMail = "";
+      embedded_svc.menu.chat.settings.paramBrand = "03";
+      embedded_svc.menu.chat.settings.paramCountry = "IT";
+		// Required if you want labels in a language that’s different from your user’s context.
+		//embedded_svc.menu.settings.language = ''; //For example, enter 'en' or 'en-US'
+      // for debug only
+      embedded_svc.menu.chat.settings.paramDebug = true;
+		  embedded_svc.menu.init(
+			 'https://calzedoniagroup--Dev.my.salesforce.com',
+			 'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+			 gslbBaseURL,
+			 '00D3E0000000Qlt',
+			 'Falconeri_IT',
+       {
+              pageName: 'PrechatSnip',
+        }
+		  );
+	   };
+     
+     var styleEmb = document.createElement('style');
+	styleEmb.type = 'text/css';
+	styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+	let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent)
+	if(!isMobile){
+	  console.log('set desktop style ');
+    	 //Style innerHTML button menu  
+	  styleEmb.innerHTML += ' .embedded-service .fab {bottom: 75px !important;right: 5px !important;}';
+	  //menu items
+	  styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 150px !important;}';
+	  //chat container
+	  styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 150px !important;}';
+	  //menu minimize button
+	  styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 30px !important;}';
+	  styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 75px !important;right:5px !important;}';
+	}else{
+	  console.log('set mobile style');
+	  //Style innerHTML button menu  
+	  styleEmb.innerHTML += ' .embedded-service .fab {bottom: 75px !important;right: 5px !important;}';
+	  //menu items
+	  styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 150px !important;}';
+	  //menu minimize button
+	  styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 30px !important;}';
+	  styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 75px !important;right:5px !important;}';
+	}
+	document.getElementsByTagName('head')[0].appendChild(styleEmb);
+
+	if (!window.embedded_svc || !window.embedded_svc.menu) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://calzedoniagroup--Dev.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</body>
+</html>
