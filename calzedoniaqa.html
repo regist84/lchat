@@ -26,8 +26,9 @@
         var styleEmb = document.createElement('style');
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
-        let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
-        if(!isMobile){
+       // let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+       let  isMobile = true; 
+       if(!isMobile){
            //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 44px !important;right: 30px !important;}';
           //menu items
