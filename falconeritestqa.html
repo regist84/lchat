@@ -30,7 +30,7 @@
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
            //Style innerHTML button menu  
-           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important; opacity: 0% !important; z-index: -2;}';
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important; visibility:hidden !important;}';
           //menu items
            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 137px !important;}';
           //menu minimize button
@@ -40,7 +40,7 @@
           styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 137px !important;}';
         }else{
           //Style innerHTML button menu  
-           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 170px !important;right: 5px !important;z-index:1000 !important;}';
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 170px !important;right: 5px !important;z-index:1000 !important;visibility:hidden !important;}';
           //menu items
            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 50px !important;z-index:999 !important;display: initial !important;}';
           //menu minimize button
