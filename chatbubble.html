@@ -1,0 +1,99 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"></meta>
+   </head>
+<body>
+<div id = 'test'>V.36 menu chat snip (chat snip on external file) - MINIMIZE SCIPT</div>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+    
+    function getMapParam (){
+	var mapParam = new Object(); 
+	var hrefString = window.location.href;
+	var prmstr = window.location.search;
+
+	prmstr = prmstr.substr(1, prmstr.length);
+	var prmarr = prmstr.split("&");
+	for ( var i = 0; i < prmarr.length; i++) {
+		var tmparr = prmarr[i].split("=");
+		mapParam[tmparr[0]] = tmparr[1];   
+	}
+	return mapParam;
+    }			
+	
+    var initESW = function(gslbBaseURL) {
+    	var langParam = 'en';
+    	var mapParam = getMapParam(); 
+	var mailParam = '';
+    	var nameParam = '';
+	var country = "IT";
+	var brandCode = "02";
+	    
+	if(mapParam['debug']){
+		embedded_svc.menu.chat.settings.paramDebug = true;
+		console.log('INFO paramsMap: ' +JSON.stringify(mapParam));
+    	}
+	    
+	if(mapParam['lang']){
+		langParam = mapParam['lang'];
+	}
+	if(mapParam['mail']){
+		mailParam = mapParam['mail'];
+	}
+	if(mapParam['name']){
+		nameParam = mapParam['name'];
+	}
+	var country = "IT";
+	if(mapParam['country']){
+		country = mapParam['country'];  
+	}
+
+	if(mapParam['brand']){
+		brandCode = mapParam['brand'];  
+	}
+	    
+        embedded_svc.menu.settings.language = langParam;
+	embedded_svc.menu.chat.settings.paramName = nameParam;
+	embedded_svc.menu.chat.settings.paramMail = mailParam;
+	embedded_svc.menu.chat.settings.paramBrand = brandCode;
+	embedded_svc.menu.chat.settings.paramCountry = country;
+	    
+	embedded_svc.menu.init(
+	    'https://calzedoniagroup--Dev.my.salesforce.com',
+	    'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+	    gslbBaseURL,
+	    '00D3E0000000Qlt',
+	    'IntimissimiChatMenu',
+	  {     
+	  
+	  pageName: 'PrechatJS'
+	  }
+	);
+/*
+baseLiveAgentContentURL: 'https://c.la3-c1cs-cdg.salesforceliveagent.com/content',
+	  deploymentId: '5723E0000008OhZ',
+	  buttonId: '5737Y00000001jW',
+	  baseLiveAgentURL: 'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+	  eswLiveAgentDevName: 'testQueueChat',
+	  isOfflineSupportEnabled: false,
+	  */
+	if(mapParam['debug']){
+		console.log('INFO '+JSON.stringify(embedded_svc));
+	}
+    };
+
+    if (!window.embedded_svc || !window.embedded_svc.menu) {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://calzedoniagroup--Dev.my.salesforce.com/embeddedservice/menu/fab.min.js');
+        s.onload = function() {
+            initESW(null);
+        };
+        document.body.appendChild(s);
+
+    } else {
+        initESW('https://service.force.com');
+    }
+</script>
+</body>
+</html>
