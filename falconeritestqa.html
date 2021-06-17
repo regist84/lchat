@@ -33,6 +33,7 @@
 	styleEmb.innerHTML = '.embedded-serviceActive  { visibility:visible !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
+		styleEmb.innerHTML += ' .embedded-service {bottom: 62px !important;right: 12px !important;visibility:hidden;}';
            //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important;}';
           //menu items
