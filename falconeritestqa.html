@@ -52,12 +52,18 @@
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
        
        document.addEventListener('scroll',
+				 var scrollInit = 0;
 		 (event) => {
                    // handle scroll event
 			console.log('Scrolling...');
 			console.log('event: ' + JSON.stringify(event));
-			console.log('event scroll top: ' + window.scrollTop);
-			console.log('event scroll left: ' + window.scrollLeft);;
+			console.log('event scroll top: ' + window.scrollY);
+			console.log('event scroll left: ' + window.scrollX);
+	       		if(scrollInit < window.scrollY){
+				console.log('is scroll down');
+			}else{
+				console.log('is other scroll');
+			}
                 }, 
                { passive: true }
              );
