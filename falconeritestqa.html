@@ -54,34 +54,28 @@
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
        var scrollInit = 0;
-       document.addEventListener('scroll',
-				 
-		 (event) => {
-                   // handle scroll event
-			console.log('Scrolling...');
-			console.log('event: ' + JSON.stringify(event));
-			console.log('event scroll top: ' + window.scrollY);
-			console.log('event scroll left: ' + window.scrollX);
-	       		if(scrollInit < window.scrollY){
-				console.log('is scroll down');
-				if (document.getElementById("embedded-service").classList.contains('embedded-serviceHidden') ){
-				 
-                                 document.getElementById("embedded-service").classList.remove('embedded-serviceHidden');
-				}
-				document.getElementById("embedded-service").classList.add('embedded-serviceActive');
-			}else if(scrollInit != window.scrollY){
-				if (document.getElementById("embedded-service").classList.contains('embedded-serviceActive') ){
-				 
-				 document.getElementById("embedded-service").classList.remove('embedded-serviceActive');
-				}
-				document.getElementById("embedded-service").classList.add('embedded-serviceHidden');
-				console.log('is scroll up');
-			}
-	            scrollInit = window.scrollY;
-                }, 
-               { passive: true }
-             );
-       
+       document.addEventListener('scroll',				 
+	 (event) => {
+	    if(document.getElementById("embedded-service")){
+	      let elemEmb = document.getElementById("embedded-service");
+	      if(scrollInit < window.scrollY){
+	         console.log('is scroll down');
+	         if (elemEmb.classList.contains('embedded-serviceHidden')){
+		   elemEmb.classList.remove('embedded-serviceHidden');
+	         }
+	         elemEmb.classList.add('embedded-serviceActive');
+	      }else if(scrollInit != window.scrollY){
+	         if (elemEmb.classList.contains('embedded-serviceActive') ){
+		   elemEmb.classList.remove('embedded-serviceActive');
+	         }
+	         elemEmb.classList.add('embedded-serviceHidden');
+	         console.log('is scroll up');
+	      }
+	    }
+	    scrollInit = window.scrollY;
+	}, 
+       { passive: true }
+     );
 };
 
   if (!window.embedded_svc || !window.embedded_svc.menu) {
