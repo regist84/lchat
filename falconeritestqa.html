@@ -29,10 +29,12 @@
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+	styleEmb.innerHTML = '.fabInActive  { visibility:hidden !important;}';
+	styleEmb.innerHTML = '.fabActive  { visibility:visible !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
            //Style innerHTML button menu  
-           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important; visibility:hidden !important;}';
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important;}';
           //menu items
            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 137px !important;}';
           //menu minimize button
@@ -61,9 +63,18 @@
 			console.log('event scroll left: ' + window.scrollX);
 	       		if(scrollInit < window.scrollY){
 				console.log('is scroll down');
+				if (document.getElementById("esw-fab").classList.contains('.fabInActive') ){
+				 document.getElementById("esw-fab").classList.add('.fabActive');
+                                 document.getElementById("esw-fab").classList.remove('.fabInActive');
+				}
+
 				
-			}else{
-				console.log('is other scroll');
+			}else if(scrollInit != window.scrollY){
+				if (document.getElementById("esw-fab").classList.contains('.fabActive') ){
+				 document.getElementById("esw-fab").classList.add('.fabInActive');
+				 document.getElementById("esw-fab").classList.remove('.fabActive');
+				}
+				console.log('is scroll up');
 			}
 	            scrollInit = window.scrollY;
                 }, 
