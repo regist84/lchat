@@ -63,16 +63,16 @@
 			console.log('event scroll left: ' + window.scrollX);
 	       		if(scrollInit < window.scrollY){
 				console.log('is scroll down');
-				if (document.getElementById("esw-fab").classList.contains('.fabInActive') ){
-				 document.getElementById("esw-fab").classList.add('.fabActive');
-                                 document.getElementById("esw-fab").classList.remove('.fabInActive');
+				if (document.getElementById("esw-fab").classList.contains('fabInActive') ){
+				 document.getElementById("esw-fab").classList.add('fabActive');
+                                 document.getElementById("esw-fab").classList.remove('fabInActive');
 				}
 
 				
 			}else if(scrollInit != window.scrollY){
-				if (document.getElementById("esw-fab").classList.contains('.fabActive') ){
-				 document.getElementById("esw-fab").classList.add('.fabInActive');
-				 document.getElementById("esw-fab").classList.remove('.fabActive');
+				if (document.getElementById("esw-fab").classList.contains('fabActive') ){
+				 document.getElementById("esw-fab").classList.add('fabInActive');
+				 document.getElementById("esw-fab").classList.remove('fabActive');
 				}
 				console.log('is scroll up');
 			}
