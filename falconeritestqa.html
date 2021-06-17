@@ -63,17 +63,17 @@
 			console.log('event scroll left: ' + window.scrollX);
 	       		if(scrollInit < window.scrollY){
 				console.log('is scroll down');
-				if (document.getElementById("embedded-service").classList.contains('.embedded-serviceHidden') ){
+				if (document.getElementById("embedded-service").classList.contains('embedded-serviceHidden') ){
 				 
-                                 document.getElementById("embedded-service").classList.remove('.embedded-serviceHidden');
+                                 document.getElementById("embedded-service").classList.remove('embedded-serviceHidden');
 				}
-				document.getElementById("embedded-service").classList.add('.embedded-serviceActive');
+				document.getElementById("embedded-service").classList.add('embedded-serviceActive');
 			}else if(scrollInit != window.scrollY){
-				if (document.getElementById("embedded-service").classList.contains('.embedded-serviceActive') ){
+				if (document.getElementById("embedded-service").classList.contains('embedded-serviceActive') ){
 				 
-				 document.getElementById("embedded-service").classList.remove('.embedded-serviceActive');
+				 document.getElementById("embedded-service").classList.remove('embedded-serviceActive');
 				}
-				document.getElementById("embedded-service").classList.add('.embedded-serviceHidden');
+				document.getElementById("embedded-service").classList.add('embedded-serviceHidden');
 				console.log('is scroll up');
 			}
 	            scrollInit = window.scrollY;
