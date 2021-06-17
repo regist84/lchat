@@ -31,9 +31,9 @@
        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
 	styleEmb.innerHTML = '.embedded-serviceHidden  { visibility:hidden !important;}';
 	styleEmb.innerHTML = '.embedded-serviceActive  { visibility:visible !important;}';
+	styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
-        if(!isMobile){
-		styleEmb.innerHTML += ' .embedded-service {bottom: 62px !important;right: 12px !important;visibility:hidden;}';
+        if(!isMobile){	
            //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important;}';
           //menu items
@@ -45,7 +45,7 @@
           styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 137px !important;}';
         }else{
           //Style innerHTML button menu  
-           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 170px !important;right: 5px !important;z-index:1000 !important;visibility:hidden !important;}';
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 170px !important;right: 5px !important;z-index:1000 !important;}';
           //menu items
            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 50px !important;z-index:999 !important;display: initial !important;}';
           //menu minimize button
