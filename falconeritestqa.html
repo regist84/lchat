@@ -6,7 +6,7 @@
       <!-- <a onclick="document.getElementsByClassName('uiButton helpButtonEnabled')[0].click()" style="cursor:pointer;">  Chatta con noi -->
    <a onclick="document.getElementById('esw-fab').click()" style="cursor:pointer;">  Chatta con noi
 </a>
-	   <div style="height: 200%;border-style: dashed"> TEST DIV </div>
+	   <div style="height: 200%;withborder-style: dashed"> TEST DIV </div>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <script type='text/javascript'>        
     var initESW = function(gslbBaseURL) {
@@ -56,8 +56,8 @@
                    // handle scroll event
 			console.log('Scrolling...');
 			console.log('event: ' + JSON.stringify(event));
-			console.log('event scroll top: ' + event.scrollTop);
-			console.log('event scroll top: ' + event.scrollLeft);
+			console.log('event scroll top: ' + document.scrollTop);
+			console.log('event scroll left: ' + document.scrollLeft);;
                 }, 
                { passive: true }
              );
