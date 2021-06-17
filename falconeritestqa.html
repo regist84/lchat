@@ -50,9 +50,9 @@
            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 170px !important;right:5px !important;}';         
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
-       
+       var scrollInit = 0;
        document.addEventListener('scroll',
-				 var scrollInit = 0;
+				 
 		 (event) => {
                    // handle scroll event
 			console.log('Scrolling...');
