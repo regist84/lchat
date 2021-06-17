@@ -29,8 +29,8 @@
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
-	styleEmb.innerHTML = '.fabInActive  { visibility:hidden !important;}';
-	styleEmb.innerHTML = '.fabActive  { visibility:visible !important;}';
+	styleEmb.innerHTML = '.embedded-serviceHidden  { visibility:hidden !important;}';
+	styleEmb.innerHTML = '.embedded-serviceActive  { visibility:visible !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
            //Style innerHTML button menu  
@@ -63,17 +63,17 @@
 			console.log('event scroll left: ' + window.scrollX);
 	       		if(scrollInit < window.scrollY){
 				console.log('is scroll down');
-				if (document.getElementById("esw-fab").classList.contains('fabInActive') ){
-				 document.getElementById("esw-fab").classList.add('fabActive');
-                                 document.getElementById("esw-fab").classList.remove('fabInActive');
+				if (document.getElementById("embedded-service").classList.contains('.embedded-serviceHidden') ){
+				 
+                                 document.getElementById("embedded-service").classList.remove('.embedded-serviceHidden');
 				}
-
-				
+				document.getElementById("embedded-service").classList.add('.embedded-serviceActive');
 			}else if(scrollInit != window.scrollY){
-				if (document.getElementById("esw-fab").classList.contains('fabActive') ){
-				 document.getElementById("esw-fab").classList.add('fabInActive');
-				 document.getElementById("esw-fab").classList.remove('fabActive');
+				if (document.getElementById("embedded-service").classList.contains('.embedded-serviceActive') ){
+				 
+				 document.getElementById("embedded-service").classList.remove('.embedded-serviceActive');
 				}
+				document.getElementById("embedded-service").classList.add('.embedded-serviceHidden');
 				console.log('is scroll up');
 			}
 	            scrollInit = window.scrollY;
