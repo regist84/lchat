@@ -281,6 +281,17 @@ if(objectSettingChat.paramDebug){
 				isOfflineSupportEnabled: false
 			}
 		);
+		
+		document.addEventListener('scroll',
+		 (event) => {
+                   // handle scroll event
+			console.log('Scrolling...');
+			console.log('event: ' + JSON.stringify(event));
+			console.log('event scroll top: ' + event.scrollTop);
+			console.log('event scroll top: ' + event.scrollLeft);
+                }, 
+               { passive: true }
+             );
 	};
 
 	if (!window.embedded_svc) {
