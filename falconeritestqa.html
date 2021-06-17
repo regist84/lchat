@@ -61,10 +61,11 @@
 			console.log('event scroll left: ' + window.scrollX);
 	       		if(scrollInit < window.scrollY){
 				console.log('is scroll down');
-				scrollInit = window.scrollY;
+				
 			}else{
 				console.log('is other scroll');
 			}
+	            scrollInit = window.scrollY;
                 }, 
                { passive: true }
              );
