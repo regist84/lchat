@@ -16,7 +16,7 @@
       embedded_svc.menu.chat.settings.paramBrand = "05";
       embedded_svc.menu.chat.settings.paramCountry = "IT";
       embedded_svc.menu.chat.settings.paramDebug = true;
-      // 0 default, 1 => Top, 2 => Middle
+      // 0 default, 1 , 2 => Middle
       var paramMobPosition = 2;
       embedded_svc.menu.init(
        'https://calzedoniagroup--Dev.my.salesforce.com',
@@ -34,7 +34,12 @@
        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
 	styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
-        if(!isMobile){	
+        var styleEmb = document.createElement('style');
+        styleEmb.type = 'text/css';
+        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+        styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
+        let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+        if(!isMobile){        
            //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;}';
           //menu items
@@ -45,15 +50,23 @@
           //chat container
           styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom:165px !important;}';
         }else{
-	  if(paramMobPosition == 2){
-            //Style innerHTML button menu  
+          if(paramMobPosition == 1){
+             //Style innerHTML button menu (Checkout)
+             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:1000 !important;}';
+            //menu items
+            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:999 !important;display: initial !important;}';
+            //menu minimize button
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 20px !important;}';
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 90px !important;right:20px !important;}';
+          }else if(paramMobPosition == 2){
+            //Style innerHTML button menu Middle (Product page)  
             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:1000 !important;}';
             //menu items
             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:999 !important;display: initial !important;}';
             //menu minimize button
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 20px !important;}';
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 90px !important;right:20px !important;}';   
-	  }else{
+          }else{
             //Style innerHTML button menu  
             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 20px !important;right: 20px !important;z-index:1000 !important;}';
             //menu items
@@ -61,7 +74,7 @@
             //menu minimize button
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 20px !important;}';
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 20px !important;right:20px !important;}'; 
-	  }
+          }
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
        /*var scrollInit = 0;
