@@ -3,7 +3,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" Access-Control-Allow-Origin="*"/>
    </head>
    <body>
-   <div style="height: 200%;border-style: dashed"> TEST DIV </div>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <script type='text/javascript'>        
     var initESW = function(gslbBaseURL) {
@@ -12,15 +11,14 @@
       embedded_svc.menu.chat.settings.paramMail = "";
       embedded_svc.menu.chat.settings.paramBrand = "05";
       embedded_svc.menu.chat.settings.paramCountry = "IT";
-       embedded_svc.menu.chat.settings.paramDebug = true;
-      // 0 default, 2 => Middle
+      // 0 default,1, 2 => Middle
       var paramMobPosition = 0;
       embedded_svc.menu.init(
        'https://calzedoniagroup--QA.my.salesforce.com',
        'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
        gslbBaseURL,
        '00D4E0000008dvx',
-       'Falconeri_IT',
+       'PLACEHOLDER_BUTTON_NAME',
           {
               pageName: 'PrechatSnip',
           }
@@ -41,8 +39,16 @@
           //chat container
           styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom:165px !important;}';
         }else{
-          if(paramMobPosition == 2){
-            //Style innerHTML button menu  
+          if(paramMobPosition == 1){
+             //Style innerHTML button menu (Checkout)
+             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:1000 !important;}';
+            //menu items
+            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:999 !important;display: initial !important;}';
+            //menu minimize button
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 20px !important;}';
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 90px !important;right:20px !important;}';
+          }else if(paramMobPosition == 2){
+            //Style innerHTML button menu Middle (Product page)  
             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:1000 !important;}';
             //menu items
             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:999 !important;display: initial !important;}';
@@ -61,7 +67,7 @@
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
         
-   };
+};
 
   if (!window.embedded_svc || !window.embedded_svc.menu) {
       var s = document.createElement('script');
