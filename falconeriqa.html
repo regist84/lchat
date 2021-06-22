@@ -31,8 +31,8 @@
         styleEmb.innerHTML += ' .embedded-service {visibility:hidden; !important}';
         styleEmb.innerHTML += ' .embedded-serviceHidden  { visibility:hidden !important;}';
         styleEmb.innerHTML += ' .embedded-serviceActive  { visibility:visible !important;}';
-        styleEmb.innerHTML = ' .embedded-service .fab:hover:before, .embedded-service .fab:focus:before { background-color: #FFFFFF !important;}';
-        styleEmb.innerHTML = ' .embedded-service .fab:focus { background-color: #FFFFFF !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
+        styleEmb.innerHTML += ' .embedded-service .fab:hover:before, .embedded-service .fab:focus:before { background-color: #FFFFFF !important;}';
+        styleEmb.innerHTML += ' .embedded-service .fab:focus { background-color: #FFFFFF !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){        
            //Style innerHTML button menu  
