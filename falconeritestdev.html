@@ -81,8 +81,8 @@
 	       if(event.target.id && event.target.id.contains('esw')){
 	       	console.log('is click on menu');
 	       }else{
-		       if(document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
-			  !document.getElementById("esw-channelmenu").classList.contains("fadeAnimation")){
+		       if(document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.include('showAnimation') && 
+			  !document.getElementById("esw-channelmenu").classList.include("fadeAnimation")){
 		       		console.log('click close menu');
 			       document.getElementById('esw-fab').click();
 		       }
