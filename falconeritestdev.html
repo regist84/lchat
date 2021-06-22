@@ -73,6 +73,7 @@
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
        document.addEventListener('click',				 
 	 (event) => {
+	       var menuShow = false;
 	    	console.log('event.target: ' + event.target);
 	       console.log('event.target: ' + event.target.id);
 	       console.log('json event: ' + JSON.stringify(event));
@@ -80,12 +81,14 @@
 	         console.log('is click');
 	       if(event.target.id && event.target.id.includes('esw')){
 	       	console.log('is click on menu');
+		       menuShow = true;
 	       }else{
-		       if(document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
+		       if(menuShow && document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
 			  !document.getElementById("esw-channelmenu").classList.contains('fadeAnimation'))
 		       {
 		       		console.log('click close menu');
 			       document.getElementById('esw-fab').click();
+			       menuShow = false;
 		       }
 		  console.log('is click outside menu');     
 	       }
