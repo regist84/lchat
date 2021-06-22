@@ -77,7 +77,16 @@
 	       console.log('event.target: ' + event.target.id);
 	       console.log('json event: ' + JSON.stringify(event));
 	       console.log('json target: ' + JSON.stringify(event.target));
-	         console.log('is click up');
+	         console.log('is click');
+	       if(event.target.id && event.target.id.contains('esw')){
+	       	console.log('is click on menu');
+	       }else{
+		       if(document.getElementById("esw-fab") && document.getElementById("esw-fab").classList.contains('showAnimation')){
+		       		console.log('click close menu');
+			       document.getElementById('esw-fab').click();
+		       }
+		  console.log('is click outside menu');     
+	       }
 	}, 
        { passive: true }
      );
