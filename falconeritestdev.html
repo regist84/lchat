@@ -84,7 +84,7 @@
 	       let expesw = document.getElementById('esw-fab').getAttribute('aria-expanded');
 	       let menuElem = document.getElementById('esw-channelmenu');
 	       let isElemOut = !event.target.id || !event.target.id.includes('esw');
-	       if(isElemOut && expesw && menuElem && menuElem.classList.contains('showAnimation') && !menuElem.classList.contains('fadeAnimation'))
+	       if(isElemOut && expesw && menuElem)
 		       {
 		       		console.log('click close menu');
 			       document.getElementById('esw-fab').click();
