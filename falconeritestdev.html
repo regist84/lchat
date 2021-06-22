@@ -81,9 +81,10 @@
 	       if(event.target.id && event.target.id.contains('esw')){
 	       	console.log('is click on menu');
 	       }else{
-		       if(document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation')){
+		       if(document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
+			  !document.getElementById("esw-channelmenu").classList.contains("fadeAnimation")){
 		       		console.log('click close menu');
-			       //document.getElementById('esw-fab').click();
+			       document.getElementById('esw-fab').click();
 		       }
 		  console.log('is click outside menu');     
 	       }
