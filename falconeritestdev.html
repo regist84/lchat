@@ -74,6 +74,8 @@
        document.addEventListener('click',				 
 	 (event) => {
 	    	console.log('event.target: ' + event.target);
+	       console.log('event.target: ' + event.target.id);
+	       console.log('json event: ' + JSON.stringify(event));
 	         console.log('is click up');
 	}, 
        { passive: true }
