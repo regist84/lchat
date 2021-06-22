@@ -85,7 +85,7 @@
 	       console.log('aria-expanded: ' + document.getElementById('esw-fab').getAttribute('aria-expanded'));*/
 	       let expesw = document.getElementById('esw-fab').getAttribute('aria-expanded');
 	       let menuElem = document.getElementById('esw-channelmenu');
-	       let isElemOut = (!event.target.id || !event.target.id.includes('esw')) && (!event.target.getAttribute('class') == null || !event.target.getAttribute('class').includes('esw'));
+	       let isElemOut = (!event.target.id || !event.target.id.includes('esw')) && (event.target.getAttribute('class') == null || !event.target.getAttribute('class').includes('esw'));
 	       if(isElemOut && expesw == "true" && menuElem && menuElem.classList.contains('showAnimation'))
 		       {
 		       		console.log('click close menu');
