@@ -79,7 +79,9 @@
 	       console.log('event.target: ' + event.target.id);
 	       console.log('json event: ' + JSON.stringify(event));
 	       console.log('json target: ' + JSON.stringify(event.target));
+	       
 	         console.log('is click');
+	       console.log('aria-expanded: ' + document.getElementById('esw-fab').getAttribute('aria-expanded'));
 	       if(event.target.id && event.target.id.includes('esw')){
 	       	console.log('is click on menu');
 		       menuShow = true;
