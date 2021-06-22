@@ -78,7 +78,6 @@
         if(document.getElementById("embedded-service")){
           let elemEmb = document.getElementById("embedded-service");
           if(scrollInit < window.scrollY){
-             if(objectSettingChat.paramDebug) console.log('is scroll down - active menu');
              if (elemEmb.classList.contains('embedded-serviceHidden')){
                 elemEmb.classList.remove('embedded-serviceHidden');
              }
@@ -91,7 +90,6 @@
                 }
                 elemEmb.classList.add('embedded-serviceHidden');
              }
-              if(objectSettingChat.paramDebug) console.log('is scroll up - isMenuVisible: ' + isMenuVisible);
           }
         }
         scrollInit = window.scrollY;
