@@ -71,7 +71,6 @@
           }
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
-	    var menuShow = false;
        document.addEventListener('click',				 
 	 (event) => {
 	       
@@ -82,16 +81,15 @@
 	       
 	         console.log('is click');
 	       console.log('aria-expanded: ' + document.getElementById('esw-fab').getAttribute('aria-expanded'));
+	       let expesw = document.getElementById('esw-fab').getAttribute('aria-expanded');
 	       if(event.target.id && event.target.id.includes('esw')){
 	       	console.log('is click on menu');
-		       menuShow = true;
 	       }else{
-		       if(menuShow && document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
+		       if(expesw && document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation') && 
 			  !document.getElementById("esw-channelmenu").classList.contains('fadeAnimation'))
 		       {
 		       		console.log('click close menu');
 			       document.getElementById('esw-fab').click();
-			       menuShow = false;
 		       }
 		  console.log('is click outside menu');     
 	       }
