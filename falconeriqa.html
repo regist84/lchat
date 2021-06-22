@@ -28,7 +28,7 @@
         var styleEmb = document.createElement('style');
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
-        styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
+        //styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
         styleEmb.innerHTML += ' .embedded-serviceHidden  { visibility:hidden !important;}';
         styleEmb.innerHTML += ' .embedded-serviceActive  { visibility:visible !important;}';
         styleEmb.innerHTML = ' .embedded-service .fab:hover:before, .embedded-service .fab:focus:before { background-color: #FFFFFF !important;}';
@@ -36,7 +36,7 @@
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){        
            //Style innerHTML button menu  
-           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;}';
+           styleEmb.innerHTML += ' .embedded-service .fab {visibility:hidden; bottom: 90px !important;right: 20px !important;}';
           //menu items
            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 165px !important;}';
           //menu minimize button
@@ -47,7 +47,7 @@
         }else{
           if(paramMobPosition == 1){
              //Style innerHTML button menu (Checkout)
-             styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:999 !important;}';
+             styleEmb.innerHTML += ' .embedded-service .fab {visibility:hidden; bottom: 90px !important;right: 20px !important;z-index:999 !important;}';
             //menu items
             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:998 !important;display: initial !important;}';
             //menu minimize button
@@ -55,7 +55,7 @@
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 90px !important;right:20px !important;}';
           }else if(paramMobPosition == 2){
             //Style innerHTML button menu Middle (Product page)  
-            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 90px !important;right: 20px !important;z-index:999 !important;}';
+            styleEmb.innerHTML += ' .embedded-service .fab {visibility:hidden; bottom: 90px !important;right: 20px !important;z-index:999 !important;}';
             //menu items
             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 90px !important;z-index:998 !important;display: initial !important;}';
             //menu minimize button
@@ -63,7 +63,7 @@
             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 90px !important;right:20px !important;}';   
           }else{
             //Style innerHTML button menu  
-            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 20px !important;right: 20px !important;z-index:999 !important;}';
+            styleEmb.innerHTML += ' .embedded-service .fab {visibility:hidden; bottom: 20px !important;right: 20px !important;z-index:999 !important;}';
             //menu items
             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 95px !important;z-index:998 !important;display: initial !important;}';
             //menu minimize button
