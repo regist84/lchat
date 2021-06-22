@@ -32,6 +32,8 @@
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
         styleEmb.innerHTML += ' .embedded-service {visibility:hidden;}';
+	styleEmb.innerHTML += ' .embedded-service .fab:hover:before, .embedded-service .fab:focus:before {background-color: #FFFFFF !important;}';
+	styleEmb.innerHTML += ' .embedded-service .fab:focus {box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;background-color: #FFFFFF !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){        
            //Style innerHTML button menu  
