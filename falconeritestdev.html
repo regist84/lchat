@@ -71,9 +71,10 @@
           }
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
+	    var menuShow = false;
        document.addEventListener('click',				 
 	 (event) => {
-	       var menuShow = false;
+	       
 	    	console.log('event.target: ' + event.target);
 	       console.log('event.target: ' + event.target.id);
 	       console.log('json event: ' + JSON.stringify(event));
