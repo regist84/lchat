@@ -71,26 +71,10 @@
           }
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
-       /*var scrollInit = 0;
-       document.addEventListener('scroll',				 
+       document.addEventListener('click',				 
 	 (event) => {
-	    if(document.getElementById("embedded-service")){
-	      let elemEmb = document.getElementById("embedded-service");
-	      if(scrollInit < window.scrollY){
-	         console.log('is scroll down');
-	         if (elemEmb.classList.contains('embedded-serviceHidden')){
-		   elemEmb.classList.remove('embedded-serviceHidden');
-	         }
-	         elemEmb.classList.add('embedded-serviceActive');
-	      }else if(scrollInit != window.scrollY){
-	         if (elemEmb.classList.contains('embedded-serviceActive') ){
-		   elemEmb.classList.remove('embedded-serviceActive');
-	         }
-	         elemEmb.classList.add('embedded-serviceHidden');
-	         console.log('is scroll up');
-	      }
-	    }
-	    scrollInit = window.scrollY;
+	    	console.log('event.target: ' + event.target);
+	         console.log('is click up');
 	}, 
        { passive: true }
      );*/
