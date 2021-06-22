@@ -72,6 +72,32 @@
           }
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
+    var scrollInit = 0;
+       document.addEventListener('scroll',
+     (event) => {
+        if(document.getElementById("embedded-service")){
+          let elemEmb = document.getElementById("embedded-service");
+          if(scrollInit < window.scrollY){
+             if(objectSettingChat.paramDebug) console.log('is scroll down - active menu');
+             if (elemEmb.classList.contains('embedded-serviceHidden')){
+                elemEmb.classList.remove('embedded-serviceHidden');
+             }
+             elemEmb.classList.add('embedded-serviceActive');
+          }else if(scrollInit != window.scrollY ){
+              let isMenuVisible = document.getElementById("esw-channelmenu") && document.getElementById("esw-channelmenu").classList.contains('showAnimation');
+             if(!isMenuVisible){
+                if (elemEmb.classList.contains('embedded-serviceActive') ){
+                  elemEmb.classList.remove('embedded-serviceActive');
+                }
+                elemEmb.classList.add('embedded-serviceHidden');
+             }
+              if(objectSettingChat.paramDebug) console.log('is scroll up - isMenuVisible: ' + isMenuVisible);
+          }
+        }
+        scrollInit = window.scrollY;
+    },
+       { passive: true }
+     );
         
 };
 
