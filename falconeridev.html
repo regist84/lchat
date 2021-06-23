@@ -6,6 +6,7 @@
       h1 {
          font-family: ViaodaLibre
       }
+         h2{font-family: Arial}   
     </style>
    </head>
    <body>
@@ -33,6 +34,7 @@
         var styleEmb = document.createElement('style');
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+        styleEmb.innerHTML += ' .embedded-service .channelmenu_header > h2 {font-family: inherit !important;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
            //Style innerHTML button menu  
