@@ -1,13 +1,13 @@
 <html>
   <head>
 <style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #EBEBEB;
-		font-family: "Courier New", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #EBEBEB;
-	}
+      .embeddedServiceHelpButton .helpButton .uiButton {
+                background-color: #000000;
+                font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+                outline: 1px solid #000000;
+        }
 </style>
   </head>
 <body>
@@ -20,22 +20,7 @@
     let buttonChatName = 'Chat_IT';
     let buttonChatId = '5735t0000004CCB';
     let liveAgentDevName = 'EmbeddedServiceLiveAgent_Parent04I5t0000004CALEA2_17c7e182bd2';
-    
-		//embedded_svc.settings.displayHelpButton = true;
 		embedded_svc.settings.language = paramLanguage;
-
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
     embedded_svc.settings.extraPrechatFormDetails = [
