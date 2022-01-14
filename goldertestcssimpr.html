@@ -12,13 +12,13 @@
 .embedded-service .channelmenu_header > p {
     font-size: 14px !important;
 }
+.embeddedServiceSidebarMinimizedFabDefaultUI button.fab {
+	max-height: unset !important;
+}
 .embedded-service ul#esw-channelmenu_ctas {
     font-size: 12px !important;
 }
 .embedded-service .channelmenu {
-    bottom: 125px !important;
-}
-.embeddedServiceSidebar.layout-float .dockableContainer {
     bottom: 125px !important;
 }
 .embeddedServiceSidebarMinimizedFabDefaultUI {
@@ -63,7 +63,13 @@
                 buttonName,
                 {pageName: 'snipPre'}
         );
-        
+	let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+        if(!isMobile){ 
+	 var styleEmb = document.createElement('style');
+         styleEmb.type = 'text/css';
+		// this is only for desktop
+         styleEmb.innerHTML = '.embeddedServiceSidebar.layout-float .dockableContainer {bottom: 125px !important;}
+	}
     };
 
     if (!window.embedded_svc || !window.embedded_svc.menu) {
