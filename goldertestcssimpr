@@ -1,0 +1,80 @@
+<html>
+   <head>
+      <meta Access-Control-Allow-Origin="*" content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport" />
+   </head>
+   <body>
+<a href='https://regist84.github.io/lchat/goldentestchat.html'>CHAT PAGE LINK</a>
+<style>
+.embedded-service .channelmenu_header > h2 {
+	font-size: 24px !important;
+	//line-height: 2.125rem;
+}
+.embedded-service .channelmenu_header > p {
+    font-size: 14px !important;
+}
+.embedded-service ul#esw-channelmenu_ctas {
+    font-size: 12px !important;
+}
+.embedded-service .channelmenu {
+    bottom: 125px !important;
+}
+.embeddedServiceSidebar.layout-float .dockableContainer {
+    bottom: 125px !important;
+}
+.embeddedServiceSidebarMinimizedFabDefaultUI {
+	width: 45px!important;
+    height: 45px!important;
+    top: auto!important;
+    right: 20px!important;
+    bottom: 60px!important;
+    left: auto!important;
+}
+
+embeddedservice-chat-header svg.slds-icon-text-default {
+    width: 12px !important;
+    height: 12px !important;
+}
+.embeddedServiceSidebar .sidebarHeader > h2 {
+    font-size: 16px !important;
+}
+.embeddedServiceSidebar .sidebarHeader > img {
+    height: 40px !important;
+    width: 40px !important;
+}
+
+</style>
+<script src="https://service.force.com/embeddedservice/menu/fab.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var initESW = function(gslbBaseURL) {
+      let paramLanguage = 'it';
+      let paramCountry = 'IT';
+      let buttonName = 'Channel_Menu_IT_IT';
+      embedded_svc.menu.settings.language = paramLanguage; 
+      embedded_svc.menu.chat.settings.paramCountry = paramCountry;
+        embedded_svc.menu.init(
+                'https://goldengoose--devpwc1.my.salesforce.com',
+                'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+                gslbBaseURL,
+                '00D5t0000008frk',
+                buttonName,
+                {pageName: 'snipPre'}
+        );
+        
+    };
+
+    if (!window.embedded_svc || !window.embedded_svc.menu) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://goldengoose--devpwc1.my.salesforce.com/embeddedservice/menu/fab.min.js');
+            s.onload = function() {
+                    initESW(null);
+            };
+            document.body.appendChild(s);
+            
+    } else {
+            initESW('https://service.force.com');
+            
+    }
+</script>
+ </body>
+</html>
