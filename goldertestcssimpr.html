@@ -69,6 +69,7 @@
          styleEmb.type = 'text/css';
 		// this is only for desktop
          styleEmb.innerHTML = '.embeddedServiceSidebar.layout-float .dockableContainer {bottom: 125px !important;}';
+		document.getElementsByTagName('head')[0].appendChild(styleEmb);
 	}
     };
 
