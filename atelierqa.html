@@ -1,0 +1,52 @@
+
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" Access-Control-Allow-Origin="*"/>
+   </head>
+   <body>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>        
+    var initESW = function(gslbBaseURL) {
+      embedded_svc.menu.settings.language = "it";
+      embedded_svc.menu.chat.settings.paramName = "";
+      embedded_svc.menu.chat.settings.paramMail = "";
+      embedded_svc.menu.chat.settings.paramBrand = "07";
+      embedded_svc.menu.chat.settings.paramCountry = "IT";
+      // 0 default, 1 => Top, 2 => Middle
+      var paramMobPosition = 0;
+      embedded_svc.menu.init(
+       'https://calzedoniagroup--QA.my.salesforce.com',
+       'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+       gslbBaseURL,
+       '00D4E0000008dvx',
+       'Ateliereme_IT',
+          {
+              pageName: 'PrechatSnip',
+          }
+        );
+        var styleEmb = document.createElement('style');
+        styleEmb.type = 'text/css';
+        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+        styleEmb.innerHTML += ' .embedded-service .fab:hover:before, .embedded-service .fab:focus:before { background-color: #FFFFFF !important;}';
+        styleEmb.innerHTML += ' .embedded-service .fab:focus { background-color: #FFFFFF !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
+        styleEmb.innerHTML += ' .embedded-service .channelmenu_header {border-bottom: unset !important; position: unset !important;}';
+        let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+        
+        document.getElementsByTagName('head')[0].appendChild(styleEmb);
+        
+};
+
+  if (!window.embedded_svc || !window.embedded_svc.menu) {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://calzedoniagroup--QA.my.salesforce.com/embeddedservice/menu/fab.min.js');
+      s.onload = function() {
+          initESW(null);
+      };
+      document.body.appendChild(s);
+
+  } else {
+      initESW('https://service.force.com');
+  }
+</script>
+      </body>
+ </html>
