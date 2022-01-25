@@ -37,7 +37,7 @@
      var msgMinimizeLabelMap = {
     "en" : "Chat with an Expert",
     "es" : "Chatear con un expert",
-    "it" : "Chatta con un esperto",
+    "it" : ["Chatta con un esperto","Chat non disponibile"],
     "fr" : "Discutez avec un expert",
     "de" : "Chat met een expert",
     "ja" : "専門家とチャットする",
@@ -57,8 +57,8 @@
       "zh-TW" : "聊天不可用",
       "ko" : "채팅을 사용할 수 없음"
     }
-    let msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage];
-    let msgMinimizeLabelOffline = msgMinimizeLabelMapOffline[paramLanguage];
+    let msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage][0];
+    let msgMinimizeLabelOffline = msgMinimizeLabelMapOffline[paramLanguage][1];
     if(!msgMinimizeLabel){
       msgMinimizeLabel = "Chat with an Expert";
       msgMinimizeLabelOffline = "Chat not available";
