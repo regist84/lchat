@@ -45,12 +45,11 @@
     "zh-TW" : ["與專家聊天","聊天不可用"],
     "ko" : ["전문가와 채팅","채팅을 사용할 수 없음"]
   }
-
-    let msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage][0];
-    let msgMinimizeLabelOffline = msgMinimizeLabelMap[paramLanguage][1];
-    if(!msgMinimizeLabel){
-      msgMinimizeLabel = msgMinimizeLabelMap["en"][0];
-      msgMinimizeLabelOffline = msgMinimizeLabelMap["en"][1];
+    let  msgMinimizeLabel = msgMinimizeLabelMap["en"][0];
+    let msgMinimizeLabelOffline = msgMinimizeLabelMap["en"][1];
+    if(msgMinimizeLabelMap[paramLanguage]){
+      msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage][0];
+      msgMinimizeLabelOffline = msgMinimizeLabelMap[paramLanguage][1];
     }
 	embedded_svc.settings.defaultMinimizedText = msgMinimizeLabel;
 	embedded_svc.settings.disabledMinimizedText = msgMinimizeLabelOffline;
