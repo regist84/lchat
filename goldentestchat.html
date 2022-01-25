@@ -34,6 +34,36 @@
          {"isExactMatch":false,"fieldName":"Country__c","doCreate":true,"doFind":false,"label":"Country"},
 	 {"isExactMatch":false,"fieldName":"Origin","doCreate":true,"doFind":false,"label":"Origin"}]}
     ];
+    let msgMinimizeLabelMap = {
+    "en": "Chat with an Expert",
+    "es": "Chatear con un expert",
+    "it" : "Chatta con un esperto",
+    "hu" : "Csevegjen egy szakértővel",
+    "fr" : "Discutez avec un expert",
+    "de" : "Chat met een expert",
+    "el" : "Συνομιλία με έναν ειδικό",
+    "pl" : "Porozmawiaj z ekspertem",
+    "pt" : "Converse com um especialista",
+    "pt-PT" : "Converse com um especialista",
+    "pt-BR" : "Converse com um especialista",
+    "pt_PT" : "Converse com um especialista",
+    "ru" : "Общайтесь с экспертом",
+    "sk" : "Chatujte s odborníkom",
+    "ro" : "Discutați cu un expert",
+    "cs" : "Chatujte s odborníkem",
+    "uk" : "Поспілкуйтеся з експертом",
+    "ja" : "専門家とチャットする",
+    "hr" : "Razgovarajte sa stručnjakom",
+    "tr" : "Bir Uzmanla Sohbet Edin",
+    "zh-CN" : "与专家聊天",
+    "zh-TW" : "與專家聊天",
+    "ko" : "전문가와 채팅"};
+    let msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage];
+    if(!msgMinimizeLabel){
+      msgMinimizeLabel = "Chat with an Expert";
+    }
+	embedded_svc.settings.defaultMinimizedText = msgMinimizeLabel;
+	embedded_svc.settings.disabledMinimizedText = msgMinimizeLabel;
     
 		embedded_svc.init(
 			'https://goldengoose--devpwc1.my.salesforce.com',
