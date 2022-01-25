@@ -34,38 +34,27 @@
          {"isExactMatch":false,"fieldName":"Country__c","doCreate":true,"doFind":false,"label":"Country"},
 	 {"isExactMatch":false,"fieldName":"Origin","doCreate":true,"doFind":false,"label":"Origin"}]}
     ];
-     var msgMinimizeLabelMap = {
-    "en" : "Chat with an Expert",
-    "es" : "Chatear con un expert",
+    let msgMinimizeLabelMap = {
+    "en" : ["Chat with an Expert","Chat not available"],
+    "es" : ["Chatear con un expert","Charla no disponible"],
     "it" : ["Chatta con un esperto","Chat non disponibile"],
-    "fr" : "Discutez avec un expert",
-    "de" : "Chat met een expert",
-    "ja" : "専門家とチャットする",
-    "zh-CN" : "与专家聊天",
-    "zh-TW" : "與專家聊天",
-    "ko" : "전문가와 채팅"
+    "fr" : ["Discutez avec un expert","Chat non disponible"],
+    "de" : ["Chat met een expert","Chat nicht verfügbar"],
+    "ja" : ["専門家とチャットする","チャットは利用できません"],
+    "zh-CN" : ["与专家聊天","聊天不可用"],
+    "zh-TW" : ["與專家聊天","聊天不可用"],
+    "ko" : ["전문가와 채팅","채팅을 사용할 수 없음"]
   }
 
-    var msgMinimizeLabelMapOffline = {
-      "en" : "Chat not available",
-      "es" : "Charla no disponible",
-      "it" : "Chat non disponibile",
-      "fr" : "Chat non disponible",
-      "de" : "Chat nicht verfügbar",
-      "ja" : "チャットは利用できません",
-      "zh-CN" : "聊天不可用",
-      "zh-TW" : "聊天不可用",
-      "ko" : "채팅을 사용할 수 없음"
-    }
     let msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage][0];
-    let msgMinimizeLabelOffline = msgMinimizeLabelMapOffline[paramLanguage][1];
+    let msgMinimizeLabelOffline = msgMinimizeLabelMap[paramLanguage][1];
     if(!msgMinimizeLabel){
-      msgMinimizeLabel = "Chat with an Expert";
-      msgMinimizeLabelOffline = "Chat not available";
+      msgMinimizeLabel = msgMinimizeLabelMap["en"][0];
+      msgMinimizeLabelOffline = msgMinimizeLabelMap["en"][1];
     }
 	embedded_svc.settings.defaultMinimizedText = msgMinimizeLabel;
 	embedded_svc.settings.disabledMinimizedText = msgMinimizeLabelOffline;
-	embedded_svc.settings.loadingText = '...';
+	embedded_svc.settings.loadingText = "...";
     
 		embedded_svc.init(
 			'https://goldengoose--devpwc1.my.salesforce.com',
