@@ -35,21 +35,22 @@
 	 {"isExactMatch":false,"fieldName":"Origin","doCreate":true,"doFind":false,"label":"Origin"}]}
     ];
     let msgMinimizeLabelMap = {
-    "en" : ["Chat with an Expert","Chat not available"],
-    "es" : ["Chatear con un expert","Charla no disponible"],
-    "it" : ["Chatta con un esperto","Chat non disponibile"],
-    "fr" : ["Discutez avec un expert","Chat non disponible"],
-    "de" : ["Chat met een expert","Chat nicht verfügbar"],
-    "ja" : ["専門家とチャットする","チャットは利用できません"],
-    "zh-CN" : ["与专家聊天","聊天不可用"],
-    "zh-TW" : ["與專家聊天","聊天不可用"],
-    "ko" : ["전문가와 채팅","채팅을 사용할 수 없음"]
+    "en" : ["Chat with an Expert","Chat not available","Loading..."],
+    "es" : ["Chatear con un expert","Charla no disponible","Cargando..."],
+    "it" : ["Chatta con un esperto","Chat non disponibile","Caricamento in corso..."],
+    "fr" : ["Discutez avec un expert","Chat non disponible","Chargement en cours..."],
+    "de" : ["Chat met een expert","Chat nicht verfügbar","Ladevorgang läuft..."],
+    "ja" : ["専門家とチャットする","チャットは利用できません","読み込み中..."],
+    "zh-CN" : ["与专家聊天","聊天不可用","正在加载……"],
+    "zh-TW" : ["與專家聊天","聊天不可用","正在加载……"],
+    "ko" : ["전문가와 채팅","채팅을 사용할 수 없음","로딩 중..."]
   }
     let  msgMinimizeLabel = msgMinimizeLabelMap[paramLanguage] ? msgMinimizeLabelMap[paramLanguage][0] : msgMinimizeLabelMap["en"][0];
     let msgMinimizeLabelOffline = msgMinimizeLabelMap[paramLanguage] ? msgMinimizeLabelMap[paramLanguage][1] : msgMinimizeLabelMap["en"][1];
+    let msgMinimizeLabelLoad = msgMinimizaLabelMap[paramLanguage] ? msgMinimizeLabelMap[paramLanguage][2] : msgMinimizeLabelMal["en"][2];
 	embedded_svc.settings.defaultMinimizedText = msgMinimizeLabel;
 	embedded_svc.settings.disabledMinimizedText = msgMinimizeLabelOffline;
-	embedded_svc.settings.loadingText = "...";
+	embedded_svc.settings.loadingText = msgMinimizeLabelLoad;
     
 		embedded_svc.init(
 			'https://goldengoose--devpwc1.my.salesforce.com',
