@@ -27,7 +27,7 @@
        var mapParam = getMapParam(); 
        let paramLanguage = 'it';
        	if(mapParam['lang']){
-		langParam = mapParam['lang'];
+		paramLanguage = mapParam['lang'];
 	}
        let buttonName = 'Channel_Menu_IT_IT';
        	if(mapParam['name']){
@@ -37,6 +37,10 @@
 	if(mapParam['country']){
 		paramCountry = mapParam['country'];  
 	}
+	    
+	    console.log('paramCountry: ' + paramCountry);
+	    console.log('buttonName: ' + buttonName);
+	    console.log('paramLanguage: ' + paramLanguage);
       
       embedded_svc.menu.settings.language = paramLanguage; 
       embedded_svc.menu.chat.settings.paramCountry = paramCountry;
