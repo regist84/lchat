@@ -7,10 +7,37 @@
 <script src="https://service.force.com/embeddedservice/menu/fab.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+   
+   function getMapParam (){
+      var mapParam = new Object(); 
+      var hrefString = window.location.href;
+      var prmstr = window.location.search;
+
+      prmstr = prmstr.substr(1, prmstr.length);
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+         var tmparr = prmarr[i].split("=");
+         mapParam[tmparr[0]] = tmparr[1];   
+      }
+      return mapParam;
+    }		
+   
+   
     var initESW = function(gslbBaseURL) {
-      let paramLanguage = 'it';
-      let paramCountry = 'IT';
-      let buttonName = 'Channel_Menu_IT_IT';
+       var mapParam = getMapParam(); 
+       let paramLanguage = 'it';
+       	if(mapParam['lang']){
+		langParam = mapParam['lang'];
+	}
+       let buttonName = 'Channel_Menu_IT_IT';
+       	if(mapParam['name']){
+		buttonName = mapParam['name'];
+	}
+	var paramCountry = "IT";
+	if(mapParam['country']){
+		paramCountry = mapParam['country'];  
+	}
+      
       embedded_svc.menu.settings.language = paramLanguage; 
       embedded_svc.menu.chat.settings.paramCountry = paramCountry;
         embedded_svc.menu.init(
