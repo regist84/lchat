@@ -3,15 +3,45 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" Access-Control-Allow-Origin="*"/>
    </head>
    <body>
-      <h1>Intimissimi_SV - sv_SE </h1>
+      <h1 id= 'title'>Intimissimi_SV - sv_SE </h1>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
-<script type='text/javascript'>        
+<script type='text/javascript'>
+    function getMapParam (){
+      var mapParam = new Object(); 
+      var hrefString = window.location.href;
+      var prmstr = window.location.search;
+
+      prmstr = prmstr.substr(1, prmstr.length);
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+         var tmparr = prmarr[i].split("=");
+         mapParam[tmparr[0]] = tmparr[1];   
+      }
+      return mapParam;
+    }
+   
     var initESW = function(gslbBaseURL) {
-      embedded_svc.menu.settings.language = "sv";
+       var mapParam = getMapParam(); 
+      let paramLanguage = 'it';
+      if(mapParam['lang']){
+         paramLanguage = mapParam['lang'];
+      }
+      let paramCountry = "IT";
+      if(mapParam['country']){
+         paramCountry = mapParam['country'];  
+      }
+      let buttonName = 'Intimissimi_IT';
+      if(mapParam['name']){
+         buttonName = mapParam['name'];
+      }else{
+         buttonName = 'Intimissimi_' + paramLanguage.toUpperCase();
+      }
+       
+      embedded_svc.menu.settings.language = paramLanguage;
       embedded_svc.menu.chat.settings.paramName = "";
       embedded_svc.menu.chat.settings.paramMail = "";
       embedded_svc.menu.chat.settings.paramBrand = "02";
-      embedded_svc.menu.chat.settings.paramCountry = "SE";
+      embedded_svc.menu.chat.settings.paramCountry = paramCountry;
       embedded_svc.menu.chat.settings.paramDebug = true;
       // 0 default, 1 => Top, 2 => Middle
       var paramMobPosition = 0;
@@ -20,7 +50,7 @@
        'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
        gslbBaseURL,
        '00D4E0000008dvx',
-       'Intimissimi_SV',
+       buttonName,
           {
               pageName: 'PrechatSnip',
           }
@@ -66,6 +96,7 @@
            }        
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
+       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase();
         
 };
 
