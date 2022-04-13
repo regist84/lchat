@@ -22,19 +22,17 @@
    
     var initESW = function(gslbBaseURL) {
        var mapParam = getMapParam(); 
-      let paramLanguage = 'it';
+      let paramLanguage;
       if(mapParam['lang']){
          paramLanguage = mapParam['lang'];
       }
-      let paramCountry = "IT";
+      let paramCountry;
       if(mapParam['country']){
          paramCountry = mapParam['country'];  
       }
-      let buttonName = 'Intimissimi_IT';
+      let buttonName;
       if(mapParam['name']){
          buttonName = mapParam['name'];
-      }else{
-         buttonName = 'Intimissimi_' + paramLanguage.toUpperCase();
       }
       let brandCode = '01';
       if(mapParam['brand']){
