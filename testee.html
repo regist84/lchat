@@ -39,6 +39,10 @@
       if(mapParam['brand']){
          brandCode = mapParam['brand'];
       }
+      let org;
+      if(mapParam['org']){
+         org = mapParam['org'];
+      }
        
       embedded_svc.menu.settings.language = paramLanguage;
       embedded_svc.menu.chat.settings.paramName = "";
@@ -52,7 +56,7 @@
        'https://calzedoniagroup.my.salesforce.com',
        'https://d.la1-c2-lo3.salesforceliveagent.com/chat',
        gslbBaseURL,
-       '00D58000000JmkM',
+       org,
        buttonName,
           {
               pageName: 'PrechatSnip',
