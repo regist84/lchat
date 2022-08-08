@@ -1,0 +1,116 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" Access-Control-Allow-Origin="*"/>
+   </head>
+   <body>
+      <h1 id= 'title'>Intimissimi_SV - sv_SE </h1>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+    function getMapParam (){
+      var mapParam = new Object(); 
+      var hrefString = window.location.href;
+      var prmstr = window.location.search;
+
+      prmstr = prmstr.substr(1, prmstr.length);
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+         var tmparr = prmarr[i].split("=");
+         mapParam[tmparr[0]] = tmparr[1];   
+      }
+      return mapParam;
+    }
+   
+    var initESW = function(gslbBaseURL) {
+       var mapParam = getMapParam(); 
+      let paramLanguage = 'it';
+      if(mapParam['lang']){
+         paramLanguage = mapParam['lang'];
+      }
+      let paramCountry = "IT";
+      if(mapParam['country']){
+         paramCountry = mapParam['country'];  
+      }
+      let buttonName = 'Intimissimi_IT';
+      if(mapParam['name']){
+         buttonName = mapParam['name'];
+      }else{
+         buttonName = 'Intimissimi_' + paramLanguage.toUpperCase();
+      }
+       
+      embedded_svc.menu.settings.language = paramLanguage;
+      embedded_svc.menu.chat.settings.paramName = "";
+      embedded_svc.menu.chat.settings.paramMail = "";
+      embedded_svc.menu.chat.settings.paramBrand = "02";
+      embedded_svc.menu.chat.settings.paramCountry = paramCountry;
+      embedded_svc.menu.chat.settings.paramDebug = true;
+      // 0 default, 1 => Top, 2 => Middle
+      var paramMobPosition = 0;
+      embedded_svc.menu.init(
+       'https://calzedoniagroup--masterqa.sandbox.my.salesforce.com',
+       'https://d.la1-c1cs-lo3.salesforceliveagent.com/chat',
+       gslbBaseURL,
+       '00D3M0000000dPa',
+       buttonName,
+          {
+              pageName: 'PrechatSnip',
+          }
+        );
+        var styleEmb = document.createElement('style');
+        styleEmb.type = 'text/css';
+        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+        let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+        if(!isMobile){
+           //Style innerHTML button menu  
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 48px !important;right: 42px !important;}';
+          //menu items
+           styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 123px !important;right: 42px !important;}';
+          //menu minimize button
+           styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 42px !important;}';
+           styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 48px !important;right:42px !important;}';
+          //chat container
+          styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 123px !important;right: 42px !important;}';
+        }else{
+           if(paramMobPosition == 1){
+             //Style innerHTML button menu TOP (Checkout)
+             styleEmb.innerHTML += ' .embedded-service .fab {bottom:unset !important;top:1px !important;right: 15px !important;z-index:1000 !important;}';
+             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:unset !important;top:76px;z-index:1000 !important;display: initial !important;}';
+             //menu minimized
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {bottom:unset !important;top:76px !important;}';
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:unset !important;top:1px !important;right: 15px !important;}';
+           }else if(paramMobPosition == 2){
+             //Style innerHTML button menu Middle (Listing + Cart) 
+             styleEmb.innerHTML += ' .embedded-service .fab {bottom:24px !important;right: 8px !important;z-index:1000 !important;}';
+             //menu items
+             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:99px !important;z-index:999 !important;display: initial !important;}';
+             //menu minimize button
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 8px !important;}';
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:24px !important;right: 8px !important;}'; 
+           }else{
+             //Style innerHTML button menu (Homepage + Pdp)  
+             styleEmb.innerHTML += ' .embedded-service .fab {bottom:168px !important;right:8px !important;z-index:1000 !important;}';
+             //menu items
+             styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:128px !important;z-index:999 !important;display: initial !important;}';
+             //menu minimize button
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right:8px !important;}';
+             styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:168px !important;right:8px !important;}';  
+           }        
+        }
+        document.getElementsByTagName('head')[0].appendChild(styleEmb);
+       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase();
+        
+};
+
+  if (!window.embedded_svc || !window.embedded_svc.menu) {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://calzedoniagroup--masterqa.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
+      s.onload = function() {
+          initESW(null);
+      };
+      document.body.appendChild(s);
+
+  } else {
+      initESW('https://service.force.com');
+  }
+</script>
+      </body>
+ </html>
