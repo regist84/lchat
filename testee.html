@@ -53,7 +53,7 @@
       // 0 default, 1 => Top, 2 => Middle
       var paramMobPosition = 0;
       embedded_svc.menu.init(
-       'https://calzedoniagroup.my.salesforce.com',
+       'https://calzedoniagroup.my.salesforce-sites.com',
        'https://d.la1-c2-lo3.salesforceliveagent.com/chat',
        gslbBaseURL,
        org,
@@ -109,7 +109,7 @@
 
   if (!window.embedded_svc || !window.embedded_svc.menu) {
       var s = document.createElement('script');
-      s.setAttribute('src', 'https://calzedoniagroup.my.salesforce.com/embeddedservice/menu/fab.min.js');
+      s.setAttribute('src', 'https://calzedoniagroup.my.salesforce-sites.com/embeddedservice/menu/fab.min.js');
       s.onload = function() {
           initESW(null);
       };
