@@ -36,6 +36,10 @@
       }else{
          buttonName = 'Tezenis_' + paramLanguage.toUpperCase();
       }
+      let orgdom = 'https://calzedoniagroup.my.salesforce-sites.com';
+     if(mapParam['orgdom']){
+      orgdom = mapParam['orgdom'];
+     }
        
       embedded_svc.menu.settings.language = paramLanguage;
       embedded_svc.menu.chat.settings.paramName = "";
@@ -76,13 +80,17 @@
            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 170px !important;right:5px !important;}';     
         }
         document.getElementsByTagName('head')[0].appendChild(styleEmb);
-       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase();
+       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase() + ' dom' + orgdom;
         
 };
 
   if (!window.embedded_svc || !window.embedded_svc.menu) {
       var s = document.createElement('script');
-      s.setAttribute('src', 'https://calzedoniagroup--QA.my.salesforce.com/embeddedservice/menu/fab.min.js');
+      let orgdom = 'https://calzedoniagroup--QA.my.salesforce.com';
+      if(mapParam['orgdom']){
+        orgdom = mapParam['orgdom'];
+      }
+      s.setAttribute('src', orgdom +'/embeddedservice/menu/fab.min.js');
       s.onload = function() {
           initESW(null);
       };
