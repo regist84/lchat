@@ -36,7 +36,7 @@
       }else{
          buttonName = 'Tezenis_' + paramLanguage.toUpperCase();
       }
-      let orgdom = 'https://calzedoniagroup.my.salesforce-sites.com';
+      let orgdom = 'https://calzedoniagroup--QA.my.salesforce.com';
      if(mapParam['orgdom']){
       orgdom = mapParam['orgdom'];
      }
@@ -47,7 +47,7 @@
       embedded_svc.menu.chat.settings.paramBrand = "03";
        embedded_svc.menu.chat.settings.paramCountry = paramCountry;
       embedded_svc.menu.init(
-       'https://calzedoniagroup--QA.my.salesforce.com',
+       orgdom,
        'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
        gslbBaseURL,
        '00D4E0000008dvx',
