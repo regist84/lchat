@@ -37,7 +37,7 @@
       if(mapParam['name']){
          buttonName = mapParam['name'];
       }else{
-         buttonName = 'Channel_Menu' + paramLanguage.toUpperCase() + paramCountry.toUpperCase();
+         buttonName = 'Channel_Menu_' + paramLanguage.toUpperCase() + '_' +  paramCountry.toUpperCase();
       }
      let orgdom = 'https://goldengoose--devpwc1.my.salesforce.com';
      if(mapParam['orgdom']){
@@ -54,7 +54,7 @@
                 {pageName: 'snipPre'}
         );
        
-       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase() + '<br>\ dom:' + orgdom;
+       document.getElementById('title').innerHTML = 'name: ' + buttonName + '<br>\ lang: ' + paramLanguage.toLowerCase()  + ' country: ' + paramCountry.toUpperCase() + '<br>\ dom:' + orgdom;
         
     };
 
