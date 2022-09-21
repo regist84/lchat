@@ -3,31 +3,69 @@
       <meta Access-Control-Allow-Origin="*" content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport" />
    </head>
    <body>
+       <h1 id= 'title'></h1> 
 <a href='https://regist84.github.io/lchat/goldentestchat.html'>CHAT PAGE LINK</a>
  <a href='https://regist84.github.io/lchat/goldentestpdp.html'>CHATMENU PAGE LINK</a>
 <script src="https://service.force.com/embeddedservice/menu/fab.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+   function getMapParam (){
+      var mapParam = new Object(); 
+      var hrefString = window.location.href;
+      var prmstr = window.location.search;
+
+      prmstr = prmstr.substr(1, prmstr.length);
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+         var tmparr = prmarr[i].split("=");
+         mapParam[tmparr[0]] = tmparr[1];   
+      }
+      return mapParam;
+    }
+   
     var initESW = function(gslbBaseURL) {
-      let paramLanguage = 'es';
-      let paramCountry = 'IT';
-      let buttonName = 'Channel_Menu_IT_ES';
+      var mapParam = getMapParam(); 
+      let paramLanguage = 'it';
+      if(mapParam['lang']){
+         paramLanguage = mapParam['lang'];
+      }
+      let paramCountry = "IT";
+      if(mapParam['country']){
+         paramCountry = mapParam['country'];  
+      }
+      let buttonName = '';
+      if(mapParam['name']){
+         buttonName = mapParam['name'];
+      }else{
+         buttonName = 'Channel_Menu' + paramLanguage.toUpperCase() + paramCountry.toUpperCase();
+      }
+     let orgdom = 'https://goldengoose--devpwc1.my.salesforce.com';
+     if(mapParam['orgdom']){
+      orgdom = mapParam['orgdom'];
+     }
       embedded_svc.menu.settings.language = paramLanguage; 
       embedded_svc.menu.chat.settings.paramCountry = paramCountry;
         embedded_svc.menu.init(
-                'https://goldengoose--devpwc1.my.salesforce.com',
+                orgdom,
                 'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
                 gslbBaseURL,
                 '00D5t0000008frk',
                 buttonName,
                 {pageName: 'snipPre'}
         );
+       
+       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase() + </br> + ' dom:' + orgdom;
         
     };
 
     if (!window.embedded_svc || !window.embedded_svc.menu) {
             var s = document.createElement('script');
-            s.setAttribute('src', 'https://goldengoose--devpwc1.my.salesforce.com/embeddedservice/menu/fab.min.js');
+          let orgdom = 'https://goldengoose--devpwc1.my.salesforce.com';
+         if(mapParam['orgdom']){
+           orgdom = mapParam['orgdom'];
+         }
+         s.setAttribute('src', orgdom +'/embeddedservice/menu/fab.min.js');
+           
             s.onload = function() {
                     initESW(null);
             };
