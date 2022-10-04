@@ -43,14 +43,22 @@
       if(mapParam['org']){
          org = mapParam['org'];
       }
-       let orgdom = 'https://calzedoniagroup.my.salesforce-sites.com';
+       let orgdom = 'https://calzedoniagroup--devomscrm1.sandbox.my.salesforce.com';
      if(mapParam['orgdom']){
       orgdom = mapParam['orgdom'];
      }
+       let paramName = '';
+            if(mapParam['cname']){
+      paramName = mapParam['cname'];
+     }
+       let paramMail = '';
+            if(mapParam['cemail']){
+      paramMail = mapParam['cemail'];
+     }
        
       embedded_svc.menu.settings.language = paramLanguage;
-      embedded_svc.menu.chat.settings.paramName = "";
-      embedded_svc.menu.chat.settings.paramMail = "";
+      embedded_svc.menu.chat.settings.paramName = paramName;
+      embedded_svc.menu.chat.settings.paramMail = paramMail;
       embedded_svc.menu.chat.settings.paramBrand = brandCode;
       embedded_svc.menu.chat.settings.paramCountry = paramCountry;
       embedded_svc.menu.chat.settings.paramDebug = true;
