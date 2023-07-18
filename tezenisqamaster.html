@@ -57,6 +57,7 @@
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
+           /* backup pre restyle 2023R8
            //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 62px !important;right: 12px !important;}';
           //menu items
@@ -65,7 +66,17 @@
            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 12px !important;}';
            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 62px !important;right:12px !important;}';
           //chat container
-          styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 137px !important;}';
+          styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 137px !important;}';*/
+           //new value restyle 2023R8
+           //Style innerHTML button menu  
+            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 80px !important;right: 40px !important;}';
+            //menu items
+            styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 144px !important;}';
+            //menu minimize button
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {bottom: 56px !important}';
+            styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 80px !important; right:40px !important;}';
+            //chat container
+            styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 144px !important; right: 40px !important;}';
         }else{
           //Style innerHTML button menu  
            styleEmb.innerHTML += ' .embedded-service .fab {bottom: 170px !important;right: 5px !important;z-index:1000 !important;}';
