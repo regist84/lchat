@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" Access-Control-Allow-Origin="*"/>
+      <style type="text/css">
+         @font-face {
+            font-family: "PP Radio Grotesk";
+            src: url("https://regist84.github.io/lchat/Sharp-Grotesk-Bold-15-Regular.ttf") format("ttf"),
+            }
+      </style>
+   </head>
+   <body>
+      <h1 id= 'title'>-</h1>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+    function getMapParam (){
+      var mapParam = new Object(); 
+      var hrefString = window.location.href;
+      var prmstr = window.location.search;
+
+      prmstr = prmstr.substr(1, prmstr.length);
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+         var tmparr = prmarr[i].split("=");
+         mapParam[tmparr[0]] = tmparr[1];   
+      }
+      return mapParam;
+    }
+   
+    var initESW = function(gslbBaseURL) {
+       var mapParam = getMapParam(); 
+      let paramLanguage;
+      if(mapParam['lang']){
+         paramLanguage = mapParam['lang'];
+      }
+      let paramCountry;
+      if(mapParam['country']){
+         paramCountry = mapParam['country'];  
+      }
+      let buttonName;
+      if(mapParam['name']){
+         buttonName = mapParam['name'];
+      }
+      let brandCode = '01';
+      if(mapParam['brand']){
+         brandCode = mapParam['brand'];
+      }
+      let org;
+      if(mapParam['org']){
+         org = mapParam['org'];
+      }
+       let orgdom = 'https://calzedoniagroup--devomscrm1.sandbox.my.salesforce.com';
+     if(mapParam['orgdom']){
+      orgdom = mapParam['orgdom'];
+     }
+       let paramName = '';
+            if(mapParam['cname']){
+      paramName = mapParam['cname'];
+     }
+       let paramMail = '';
+            if(mapParam['cemail']){
+      paramMail = mapParam['cemail'];
+     }
+       
+      embedded_svc.menu.settings.language = paramLanguage;
+      embedded_svc.menu.chat.settings.paramName = paramName;
+      embedded_svc.menu.chat.settings.paramMail = paramMail;
+      embedded_svc.menu.chat.settings.paramBrand = brandCode;
+      embedded_svc.menu.chat.settings.paramCountry = paramCountry;
+      embedded_svc.menu.chat.settings.paramDebug = true;
+      // 0 default, 1 => Top, 2 => Middle
+      var paramMobPosition = 0;
+      embedded_svc.menu.init(
+       orgdom,
+       'https://d.la1-c2-lo2.salesforceliveagent.com/chat',
+       gslbBaseURL,
+       org,
+       buttonName,
+          {
+              pageName: 'PrechatSnip',
+          }
+        );
+        var styleEmb = document.createElement('style');
+        styleEmb.type = 'text/css';
+        styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
+          if(brandCode == "02"){
+             //style intimissimi
+             styleEmb.innerHTML += ' .embedded-service .fab:focus { background-color: #F4F1EB !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
+          }
+        let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
+        if(!isMobile){
+          if(brandCode == "02"){
+             /*******style intimissimi***/
+            
+             
+              //Style innerHTML button menu  
+              styleEmb.innerHTML += ' .embedded-service .fab {bottom: 48px !important;right: 42px !important;z-index:1000 !important;}';
+             //menu items
+              styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 123px !important;right: 42px !important;z-index:1000 !important;}';
+             //menu minimize button
+              styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 42px !important;}';
+              styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 48px !important;right:42px !important;}';
+             //chat container
+             //OLD POSITION VERSION
+             //styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 123px !important;right: 42px !important;}';
+             styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer{bottom: 113px !important;right: 42px !important; height: 408px !important; width: 320px !important;}';
+             /*******end style intimissimi***/
+          }else{ 
+             /*******style generic***/
+           //Style innerHTML button menu  
+           styleEmb.innerHTML += ' .embedded-service .fab {bottom: 48px !important;right: 42px !important;}';
+          //menu items
+           styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom: 123px !important;right: 42px !important;}';
+          //menu minimize button
+           styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 42px !important;}';
+           styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom: 48px !important;right:42px !important;}';
+          //chat container
+          styleEmb.innerHTML += ' .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 123px !important;right: 42px !important;}';
+          }
+        }else{
+           if(brandCode == "02"){
+             /*******style intimissimi***/
+                 if(paramMobPosition == 1){
+                //Style innerHTML button menu TOP (Checkout)
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:unset !important;top:1px !important;right: 15px !important;z-index:1000 !important;}';
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:unset !important;top:76px;z-index:1000 !important;display: initial !important;}';
+                //menu minimized
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {bottom:unset !important;top:76px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:unset !important;top:1px !important;right: 15px !important;}';
+             }else if(paramMobPosition == 2){
+                //Style innerHTML button menu Middle (Listing) 
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:24px !important;right: 8px !important;z-index:998 !important;}';
+                //menu items
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:99px !important;z-index:997 !important;display: initial !important;}';
+                //menu minimize button
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 8px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:24px !important;right: 8px !important;}'; 
+             }else if(paramMobPosition == 3){
+                 //Style innerHTML button menu Middle (only for Cart page) 
+                 styleEmb.innerHTML += ' .embedded-service .fab {bottom:125px !important;right: 8px !important;z-index:998 !important;}';
+                 //menu items
+                 styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:99px !important;z-index:997 !important;display: initial !important;}';
+                 //menu minimize button
+                 styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 8px !important;}';
+                 styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:125px !important;right: 8px !important;}'; 
+             }else{
+                //Style innerHTML button menu (Homepage + Pdp)  
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:168px !important;right:8px !important;z-index:998 !important;}';
+                //menu items
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:128px !important;z-index:997 !important;display: initial !important;}';
+                //menu minimize button
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right:8px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:168px !important;right:8px !important;}';  
+             } 
+               /*******end style intimissimi***/
+           }else{
+              /*******style generic***/
+              if(paramMobPosition == 1){
+                //Style innerHTML button menu TOP (Checkout)
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:unset !important;top:1px !important;right: 15px !important;z-index:1000 !important;}';
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:unset !important;top:76px;z-index:1000 !important;display: initial !important;}';
+                //menu minimized
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {bottom:unset !important;top:76px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:unset !important;top:1px !important;right: 15px !important;}';
+              }else if(paramMobPosition == 2){
+                //Style innerHTML button menu Middle (Listing + Cart) 
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:24px !important;right: 8px !important;z-index:1000 !important;}';
+                //menu items
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:99px !important;z-index:999 !important;display: initial !important;}';
+                //menu minimize button
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right: 8px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:24px !important;right: 8px !important;}'; 
+              }else{
+                //Style innerHTML button menu (Homepage + Pdp)  
+                styleEmb.innerHTML += ' .embedded-service .fab {bottom:168px !important;right:8px !important;z-index:1000 !important;}';
+                //menu items
+                styleEmb.innerHTML += ' .embedded-service .channelmenu {bottom:128px !important;z-index:999 !important;display: initial !important;}';
+                //menu minimize button
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI .content {right:8px !important;}';
+                styleEmb.innerHTML += ' .embeddedServiceSidebarMinimizedFabDefaultUI {bottom:168px !important;right:8px !important;}';  
+              }
+           }
+        }
+        document.getElementsByTagName('head')[0].appendChild(styleEmb);
+       document.getElementById('title').innerHTML = buttonName + ' - ' + paramLanguage.toLowerCase() +'_'+ paramCountry.toUpperCase();
+        
+};
+
+  if (!window.embedded_svc || !window.embedded_svc.menu) {
+      var s = document.createElement('script');
+     var mapParam = getMapParam(); 
+     let orgdom = '';
+     if(mapParam['orgdom']){
+      orgdom = mapParam['orgdom'];
+     }
+      s.setAttribute('src', orgdom +'/embeddedservice/menu/fab.min.js');
+      s.onload = function() {
+          initESW(null);
+      };
+      document.body.appendChild(s);
+
+  } else {
+      initESW('https://service.force.com');
+  }
+</script>
+      </body>
