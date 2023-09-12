@@ -83,45 +83,19 @@
         var styleEmb = document.createElement('style');
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
-          if(brandCode == "02"){
-             //style intimissimi
-             styleEmb.innerHTML += ' .embedded-service .fab:focus { background-color: #F4F1EB !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
-            /******* restyle menu **********/
-             /* change alignment title container  */
-            styleEmb.innerHTML += ' .embedded-service .channelmenu_header {
-                text-align: left;
-                gap: 4px !important;
-                padding: 0px 16px 0px 16px !important;
-                font-weight: 400;
-                font-size: 18px !important;
-                line-height: 24.3px;
-                margin-top: 24px;
-                margin-bottom: 24px;
-                min-height: 46px;
-            }';
-
-            /* change alignment title parag */
-            styleEmb.innerHTML += ' .embedded-service .channelmenu_header > p {
-                font-size: 12px;
-                font-weight: 400;
-                margin-top: 4px;
-                margin-bottom: 0px;
-                letter-spacing: 0.001em;
-                line-height: 18px;
-            }';
-
-            /* changed items menu */
-            styleEmb.innerHTML += ' .embedded-service .channelmenu_ctas > li {
-                max-height: 58px !important;
-                height: 37px !important;
-                min-height: 37px;
-                margin-bottom: 8px !important;
-                margin-left: -16px;
-                padding: 0px 0px 0px 0px;
-            }';
-            styleEmb.innerHTML += ' .embedded-service .channelmenu_ctas li[class="cta-phone"] {height: 61px !important;margin-top: -16px;}';
-            styleEmb.innerHTML += ' .embedded-service .esw-loading-circles .esw-loading-circle {width: 16px; height: 17px; position: absolute;padding: 0px 0px 0px 0px !important;}';
-          }
+       if(brandCode == "02"){
+          //style intimissimi
+          styleEmb.innerHTML += ' .embedded-service .fab:focus { background-color: #F4F1EB !important; box-shadow: 2px 2px 5px 0 rgba(45,45,45,0.5) !important;}';
+         /******* restyle menu **********/
+          /* change alignment title container  */
+         styleEmb.innerHTML += ' .embedded-service .channelmenu_header {text-align: left; gap: 4px !important; padding: 0px 16px 0px 16px !important; font-weight: 400; font-size: 18px !important; line-height: 24.3px; margin-top: 24px; margin-bottom: 24px; min-height: 46px;}';
+         /* change alignment title parag */
+         styleEmb.innerHTML += ' .embedded-service .channelmenu_header > p { font-size: 12px; font-weight: 400; margin-top: 4px; margin-bottom: 0px; letter-spacing: 0.001em; line-height: 18px;}';
+         /* changed items menu */
+         styleEmb.innerHTML += ' .embedded-service .channelmenu_ctas > li { max-height: 58px !important; height: 37px !important; min-height: 37px; margin-bottom: 8px !important; margin-left: -16px; padding: 0px 0px 0px 0px;}';
+         styleEmb.innerHTML += ' .embedded-service .channelmenu_ctas li[class="cta-phone"] {height: 61px !important;margin-top: -16px;}';
+         styleEmb.innerHTML += ' .embedded-service .esw-loading-circles .esw-loading-circle {width: 16px; height: 17px; position: absolute;padding: 0px 0px 0px 0px !important;}';
+       }
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
           if(brandCode == "02"){
