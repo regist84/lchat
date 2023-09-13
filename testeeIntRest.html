@@ -61,6 +61,11 @@
             if(mapParam['cemail']){
       paramMail = mapParam['cemail'];
      }
+            let paramMobPosition = 0;
+     // 0 default, 1 => Top, 2 => Middle
+     if(mapParam['mobpos']){
+      paramMobPosition = mapParam['mobpos'];
+     }
        
       embedded_svc.menu.settings.language = paramLanguage;
       embedded_svc.menu.chat.settings.paramName = paramName;
@@ -68,8 +73,7 @@
       embedded_svc.menu.chat.settings.paramBrand = brandCode;
       embedded_svc.menu.chat.settings.paramCountry = paramCountry;
       embedded_svc.menu.chat.settings.paramDebug = true;
-      // 0 default, 1 => Top, 2 => Middle
-      var paramMobPosition = 0;
+
       embedded_svc.menu.init(
        orgdom,
        'https://d.la1-c2-lo2.salesforceliveagent.com/chat',
