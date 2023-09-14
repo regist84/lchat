@@ -87,15 +87,6 @@
         var styleEmb = document.createElement('style');
         styleEmb.type = 'text/css';
         styleEmb.innerHTML = '.embedded-service .channelmenu_ctas li a { font-size: small;font-weight: normal;}';
-       /* changed container icons bubble */
-         styleEmb.innerHTML = ' .embedded-service .fab { width: 48px !important; height: 48px !important;}';
-         
-         /* changed icons dimension bubble */
-         styleEmb.innerHTML = ' .embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon {width: 20px;height: 20px;margin-top: 5px;}';
-         
-         /* changed icons dimension bubble with chat opened */
-         styleEmb.innerHTML = ' .embeddedServiceSidebarMinimizedFabDefaultUI button.fab {width: 48px !important;height: 48px !important;background-color: #FFFFFF !important;}';
-       
         let  isMobile = new RegExp('(?:^|\\s)Android', 'i').test(navigator.userAgent) || new RegExp('(?:^|\\s)Mobile', 'i').test(navigator.userAgent) ||  new RegExp('(?:^|\\s)iOS', 'i').test(navigator.userAgent);
         if(!isMobile){
           if(brandCode == "02"){
