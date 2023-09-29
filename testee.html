@@ -51,8 +51,10 @@
          var styleEmbHide = document.createElement('style');
          styleEmbHide.type = 'text/css';
          styleEmb.innerHTML = '.embedded-service {visibility:hidden !important; }';
-         var body = document.getElementsByTagName('body');
-         document.body.innerHTML = '<div style="height: 200%;border-style: dashed">scrollable div</div>';
+         var elemScrollable = document.createElement('div');
+         elemScrollable.style.cssText = 'height: 200%;border-style: dashed';
+         document.body.appendChild(elemScrollable);
+         //document.body.innerHTML = '<div style="height: 200%;border-style: dashed">scrollable section</div>';
       }
       let org;
       if(mapParam['org']){
