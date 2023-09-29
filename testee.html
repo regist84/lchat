@@ -11,6 +11,7 @@
    </head>
    <body>
       <h1 id= 'title'>-</h1>
+      <div style="height: 200%;border-style: dashed"> scrollable div </div>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <script type='text/javascript'>
     function getMapParam (){
@@ -44,6 +45,14 @@
       let brandCode = '01';
       if(mapParam['brand']){
          brandCode = mapParam['brand'];
+      }
+       // added scrollable div and hide bubble for this brands
+      if(brandCode === '05' || brandCode === '02'){
+         var styleEmbHide = document.createElement('style');
+         styleEmbHide.type = 'text/css';
+         styleEmb.innerHTML = '.embedded-service {visibility:hidden !important; }';
+         var body = document.getElementsByTagName('body');
+         document.body.innerHTML = '<div style="height: 200%;border-style: dashed">scrollable div</div>';
       }
       let org;
       if(mapParam['org']){
